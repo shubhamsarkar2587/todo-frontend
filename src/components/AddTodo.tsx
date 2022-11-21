@@ -9,6 +9,8 @@ const AddTodo = () => {
 
   const handleAddTodo = () => {
     dispatch(createTodoAction({ name, description, status: false }));
+    setName('');
+    setDescription('');
   };
 
   return (
