@@ -12,8 +12,8 @@ const ShowTodo = ({ _id, name, description, status }: ITodo) => {
   return (
     <div className="bg-[#444] p-5 flex items-center justify-between mb-0.5">
       <div className="flex flex-col">
-        <span className="text-[#ff9900] text-3xl font-extrabold">{name}</span>
-        <span>{description}</span>
+        <span className="text-[#ff9900] text-3xl font-extrabold break-all w-96">{name}</span>
+        <span className="break-all w-96">{description}</span>
       </div>
       <div>
         {
