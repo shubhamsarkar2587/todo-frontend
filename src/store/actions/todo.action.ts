@@ -12,7 +12,7 @@ export const getTodosAction = () => ({
   type: getTodos
 });
 
-export const setTodosAction = (value: ITodo[]) => ({
+export const setTodoSagaAction = (value: ITodo[]) => ({
   type: setTodos,
   payload: value
 });
@@ -21,3 +21,4 @@ export const createTodoAction = (value: ICreateTodo) => ({
   type: createTodo,
   payload: value
 });
+
