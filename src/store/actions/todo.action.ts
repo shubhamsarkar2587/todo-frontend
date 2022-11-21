@@ -7,6 +7,7 @@ import { ICreateTodo, ITodo } from "../../types/todo.type";
 export const getTodos = "GET_TODOS";
 export const setTodos = "SET_TODOS";
 export const createTodo = "CREATE_TODO";
+export const deleteTodo = "DELETE_TODO";
 
 export const getTodosAction = () => ({
   type: getTodos
@@ -20,5 +21,10 @@ export const setTodoSagaAction = (value: ITodo[]) => ({
 export const createTodoAction = (value: ICreateTodo) => ({
   type: createTodo,
   payload: value
+});
+
+export const deleteTodoAction = (id: string) => ({
+  type: deleteTodo,
+  payload: id
 });
 

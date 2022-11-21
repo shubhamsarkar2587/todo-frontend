@@ -10,3 +10,7 @@ export const getTodoService = async () => {
 export const postTodoService = async (postData: any) => {
   await axios.post(`${baseUrl}/todo`, postData)
 };
+
+export const deleteTodoService = async (deleteTodoId: any) => {
+  await axios.delete(`${baseUrl}/todo/${deleteTodoId}`)
+};
