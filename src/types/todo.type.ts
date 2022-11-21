@@ -12,3 +12,7 @@ export interface ICreateTodo {
   description: string,
   status: boolean
 };
+
+export interface ICallback {
+  callback?: () => void
+}

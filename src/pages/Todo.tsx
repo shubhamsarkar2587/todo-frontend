@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import "./todo.css";
@@ -15,26 +15,41 @@ const Todo = () => {
   const dispatch = useDispatch();
   const allTodos = useSelector(((state: ITodoState) => state.todos))
 
+  const [loading, setLoading] = useState(false);
+
+  const handleLoading = () => {
+    setLoading(false)
+  }
+
   useEffect(() => {
-    dispatch(getTodosAction());
+    setLoading(true);
+    dispatch(getTodosAction({ callback: handleLoading }));
   }, [dispatch]);
+
+  console.log(loading)
 
   return (
     <div className="h-100 bg-[#333] p-10">
       <div className="text-3xl text-center mb-5">My Todos</div>
       <AddTodo />
-      <div className="show_todo overflow-y-auto h-80">
+      <div className="h-80">
         {
-          allTodos.length > 0 ? allTodos.map((todo) => (
-            <ShowTodo
-              key={todo._id}
-              _id={todo._id}
-              name={todo.name}
-              description={todo.description}
-              status={todo.status}
-            />
-          ))
-            : null
+          !loading ? (
+            <div className="show_todo overflow-y-auto h-full">
+              {allTodos.length > 0 ? allTodos.map((todo) => (
+                <ShowTodo
+                  key={todo._id}
+                  _id={todo._id}
+                  name={todo.name}
+                  description={todo.description}
+                  status={todo.status}
+                />
+              )) : (
+                <div className="text-3xl font-extrabold mt-5 text-[#ff9900] flex items-center justify-center">
+                  No Todo Found!
+                </div>)}
+            </div>
+          ) : null
         }
       </div>
     </div>

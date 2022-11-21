@@ -14,3 +14,7 @@ export const postTodoService = async (postData: any) => {
 export const deleteTodoService = async (deleteTodoId: any) => {
   await axios.delete(`${baseUrl}/todo/${deleteTodoId}`)
 };
+
+export const updateTodoStatusService = async (updateTodoStatusId: any) => {
+  await axios.patch(`${baseUrl}/todo/${updateTodoStatusId}`, {status: true})
+};
