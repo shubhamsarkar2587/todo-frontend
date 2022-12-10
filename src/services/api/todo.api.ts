@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl: string = "https://todo-banner.herokuapp.com/api/v1";
+const baseUrl: string = "https://todo-backend-b1dc.onrender.com/api/v1";
 
 export const getTodoService = async () => {
   const todos = await axios.get(`${baseUrl}/todo`)
